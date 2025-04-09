@@ -10,11 +10,13 @@ function calculateRentalCost(days) {
 
   if (days >= 7) {
     return days * basicPrice - longTermDiscount;
-  } else if (days >= 3) {
-    return days * basicPrice - shortTermDiscount;
-  } else if (days < 3) {
-    return days * basicPrice;
   }
+
+  if (days >= 3) {
+    return days * basicPrice - shortTermDiscount;
+  } 
+
+  return days * basicPrice;
 }
 
 module.exports = calculateRentalCost;
